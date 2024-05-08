@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour và Du lịch</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function filterTours() {
+            const minPrice = document.getElementById('price-min').value;
+            const maxPrice = document.getElementById('price-max').value;
+            const location = document.getElementById('location-search').value.toLowerCase();
+
+            const boxes = document.querySelectorAll('.box');
+
+            boxes.forEach(box => {
+                const price = parseInt(box.querySelector('.price').innerText.replace(/\D/g, ''));
+                const tourLocation = box.querySelector('.location').innerText.toLowerCase();
+
+                const priceMatch = (minPrice === '' || price >= minPrice) && (maxPrice === '' || price <= maxPrice);
+                const locationMatch = location === '' || tourLocation.includes(location);
+
+                if (priceMatch && locationMatch) {
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+       
+    </header>
+
+    <section class="home" id="home">
+       
+    </section>
+
+    <section class="book" id="book">
+      
+    </section>
+
+    <section class="packages" id="packages">
+       
+        <div class="search-box">
+            <input type="number" id="price-min" placeholder="Giá từ...">
+            <input type="number" id="price-max" placeholder="Giá đến...">
+            <button onclick="filterTours()" class="search-btn">Tìm kiếm</button>
+        </div>
+
+
+        <div class="search-box">
+            <input type="text" id="location-search" placeholder="Địa điểm...">
+            <button onclick="filterTours()" class="search-btn">Tìm kiếm</button>
+        </div>
+
+       
+    </section>
+
+    <section class="services" id="services">
+       
+    </section>
+
+    <section class="review" id="review">
+       
+    </section>
+
+    
+
+</body>
+
+</html>
