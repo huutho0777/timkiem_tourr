@@ -21,4 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Bắt sự kiện khi nhấn nút tìm kiếm theo địa điểm
     document.getElementById('searchLocation').addEventListener('click', searchByLocation);
+
+    console.log("abc");
 });
